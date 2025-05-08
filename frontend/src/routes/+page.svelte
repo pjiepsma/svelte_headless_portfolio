@@ -7,8 +7,8 @@
 		ContactSection
 	} from '$components';
 	const { data } = $props();
-	let { workExperience, projects, skills } = $derived(data);
-	$inspect(skills);
+	let {  projects } = $derived(data);
+	// $inspect(skills);
 </script>
 
 <HeroSection />

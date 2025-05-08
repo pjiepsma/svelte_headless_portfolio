@@ -1,0 +1,11 @@
+{
+	"/": [
+		"src/routes/+page.ts"
+	],
+	"/api/send-mail": [
+		"src/routes/api/send-mail/+server.ts"
+	],
+	"/work/[slug]": [
+		"src/routes/work/[slug]/+page.ts"
+	]
+}

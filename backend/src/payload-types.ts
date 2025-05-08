@@ -70,8 +70,6 @@ export interface Config {
     users: User;
     media: Media;
     skills: Skill;
-    'dev-experience': DevExperience;
-    projects: Project;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -81,8 +79,6 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     skills: SkillsSelect<false> | SkillsSelect<true>;
-    'dev-experience': DevExperienceSelect<false> | DevExperienceSelect<true>;
-    projects: ProjectsSelect<false> | ProjectsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -171,54 +167,6 @@ export interface Skill {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "dev-experience".
- */
-export interface DevExperience {
-  id: string;
-  jobTitle: string;
-  company: string;
-  startDate: string;
-  endDate?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
- */
-export interface Project {
-  id: string;
-  name: string;
-  company: string;
-  slug: string;
-  image: string | Media;
-  dateAccomplished: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  stack?:
-    | {
-        tech?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -235,14 +183,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'skills';
         value: string | Skill;
-      } | null)
-    | ({
-        relationTo: 'dev-experience';
-        value: string | DevExperience;
-      } | null)
-    | ({
-        relationTo: 'projects';
-        value: string | Project;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -329,38 +269,6 @@ export interface SkillsSelect<T extends boolean = true> {
     | {
         name?: T;
         iconClass?: T;
-        id?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "dev-experience_select".
- */
-export interface DevExperienceSelect<T extends boolean = true> {
-  jobTitle?: T;
-  company?: T;
-  startDate?: T;
-  endDate?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects_select".
- */
-export interface ProjectsSelect<T extends boolean = true> {
-  name?: T;
-  company?: T;
-  slug?: T;
-  image?: T;
-  dateAccomplished?: T;
-  content?: T;
-  stack?:
-    | T
-    | {
-        tech?: T;
         id?: T;
       };
   updatedAt?: T;

@@ -1,7 +1,8 @@
+// @ts-nocheck
 import client from '$lib/util/payload'; // Import the client you've set up
 import type { PageLoad } from './$types';
 
-export const load: PageLoad = async () => {
+export const load = async () => {
 //   // Query for work experience data from Payload
 //   const workExperience = await client.collections.devExperience.find({
 //     sort: '-startDate', // Sorting by startDate in descending order
@@ -28,3 +29,4 @@ export const load: PageLoad = async () => {
     // skills: skills.docs,
   };
 };
+;null as any as PageLoad;

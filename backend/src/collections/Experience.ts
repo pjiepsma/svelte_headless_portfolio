@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
-export const DevExperience: CollectionConfig = {
-  slug: 'dev-experience',
+export const Experience: CollectionConfig = {
+  slug: 'experience',
   access: {
     read: () => true,
   },
